@@ -1,0 +1,25 @@
+name: 'Build, Push and Cloud Run'
+description: 'Authenticate with gcloud, build image, push image to GCR and deploy as a new revision to Cloud Run'
+author: 'Thomas Hedoux'
+branding:
+  icon: 'upload-cloud'
+  color: 'purple'
+inputs:
+  image:
+    description: 'Name of the docker image formatted as follow: [your-hostname]/[your-project]/[image]'
+    required: true
+  service:
+    description: 'Name of the service in Cloud Run'
+    required: true
+  project:
+    description: 'GCP project'
+    required: true
+  region:
+    description: 'GCP region'
+    required: true
+  service key:
+    description: 'GCP service key with storage and run permissions in base 64'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
